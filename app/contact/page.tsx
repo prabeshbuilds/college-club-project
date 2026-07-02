@@ -8,11 +8,11 @@ export const metadata: Metadata = {
 };
 
 const details = [
-  { k: "address", v: "Sungava College, Khairahani-5, Chitwan, Nepal" },
-  { k: "phone", v: "+977-56-582611" },
-  { k: "email", v: "sungavaitclub@gmail.com" },
-  { k: "facebook", v: "facebook.com/SungavaCollege" },
-  { k: "office_hours", v: "Sun–Fri, 10:00–16:00" },
+  { k: "Address", v: "Sungava College, Khairahani-5, Chitwan, Nepal" },
+  { k: "Phone", v: "+977-56-582611" },
+  { k: "Email", v: "sungavaitclub@gmail.com" },
+  { k: "Facebook", v: "facebook.com/SungavaCollege" },
+  { k: "Office Hours", v: "Sun–Fri, 10:00–16:00" },
 ];
 
 export default function Contact() {
