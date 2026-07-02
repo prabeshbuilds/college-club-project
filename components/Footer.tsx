@@ -25,6 +25,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-muted">
               <li><Link href="/" className="hover:text-paper transition-colors">Home</Link></li>
               <li><Link href="/about" className="hover:text-paper transition-colors">About the club</Link></li>
+              <li><Link href="/projects" className="hover:text-paper transition-colors">Projects</Link></li>
               <li><Link href="/join" className="hover:text-paper transition-colors">Join the club</Link></li>
               <li><Link href="/contact" className="hover:text-paper transition-colors">Contact</Link></li>
               <li><Link href="/feedback" className="hover:text-paper transition-colors">Student feedback</Link></li>
@@ -62,7 +63,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-paper transition-colors underline underline-offset-4 decoration-line"
                 >
-                  github.com/sungavaitclub-jpg
+                  github.com/sungavaitclub
                 </a>
               </li>
             </ul>
