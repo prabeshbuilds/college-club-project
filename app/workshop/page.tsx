@@ -1,4 +1,5 @@
 import WorkshopForm from "../../components/WorkshopForm";
+import FreshersFarewellEntryForm from "../../components/FreshersFarewellEntryForm";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -16,7 +17,7 @@ export default function WorkshopPage() {
             Workshop training & short courses
           </h1>
           <p className="mt-6 text-paper-dim max-w-2xl leading-relaxed">
-            Sign up for hands-on workshops run by Sungava IT Club — practical
+            Sign up for hands-on workshops run by Sungava IT Club practical
             sessions on Python, web development, AI/ML, Git and more. Fill the
             form and we&rsquo;ll reserve your seat.
           </p>
@@ -37,6 +38,23 @@ export default function WorkshopPage() {
               Interactive sessions, small groups, and a short project at the
               end. We provide course materials and a completion certificate.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-line bg-surface/40">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8 py-16 sm:py-20">
+          <p className="font-mono text-xs text-gold mb-3">// freshers & farewell</p>
+          <h2 className="font-display text-2xl sm:text-3xl font-semibold text-paper">
+            Entry form for Freshers and Farewell
+          </h2>
+          <p className="mt-4 max-w-2xl text-sm text-paper-dim leading-relaxed">
+            Students can submit their details here for the annual Freshers&apos; Week or Farewell entry process, along with the payment screenshot for confirmation.
+          </p>
+
+          <div className="mt-8 rounded-md border border-line bg-ink p-8 sm:p-10">
+            <p className="font-mono text-[11px] text-crimson mb-3">student entry form</p>
+            <FreshersFarewellEntryForm />
           </div>
         </div>
       </section>
