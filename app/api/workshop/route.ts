@@ -17,19 +17,19 @@ function getSheetsAuth() {
   return new google.auth.JWT(clientEmail, undefined, privateKey, sheetsScopes);
 }
 
-async function appendApplicationToSheet(values: {
+async function appendWorkshopToSheet(values: {
   name: string;
   email: string;
-  programme: string;
-  year: string;
-  why: string;
+  phone: string;
+  workshop: string;
+  notes?: string;
 }) {
   const auth = getSheetsAuth();
   const sheets = google.sheets({ version: "v4", auth });
 
   await sheets.spreadsheets.values.append({
     spreadsheetId: process.env.GOOGLE_SHEETS_SPREADSHEET_ID || "",
-    range: process.env.GOOGLE_SHEETS_RANGE || "Sheet1!A:F",
+    range: process.env.GOOGLE_SHEETS_RANGE || "Workshop!A:F",
     valueInputOption: "RAW",
     requestBody: {
       values: [
@@ -37,21 +37,21 @@ async function appendApplicationToSheet(values: {
           new Date().toISOString(),
           values.name,
           values.email,
-          values.programme,
-          values.year,
-          values.why,
+          values.phone,
+          values.workshop,
+          values.notes || "",
         ],
       ],
     },
   });
 }
 
-async function sendApplicationEmail(values: {
+async function sendWorkshopEmail(values: {
   name: string;
   email: string;
-  programme: string;
-  year: string;
-  why: string;
+  phone: string;
+  workshop: string;
+  notes?: string;
 }) {
   const smtpHost = process.env.SMTP_HOST || "smtp.gmail.com";
   const smtpPort = Number(process.env.SMTP_PORT || 465);
@@ -68,25 +68,15 @@ async function sendApplicationEmail(values: {
     host: smtpHost,
     port: smtpPort,
     secure: true,
-    auth: {
-      user: smtpUser,
-      pass: smtpPass,
-    },
+    auth: { user: smtpUser, pass: smtpPass },
   });
 
   const message = {
     from: emailFrom,
     to: emailTo,
-    subject: `New club application from ${values.name}`,
-    text: `New Sungava IT Club application:\n\nName: ${values.name}\nEmail: ${values.email}\nProgramme: ${values.programme}\nYear: ${values.year}\nWhy: ${values.why}`,
-    html: `<p>New Sungava IT Club application:</p>
-      <ul>
-        <li><strong>Name:</strong> ${values.name}</li>
-        <li><strong>Email:</strong> ${values.email}</li>
-        <li><strong>Programme:</strong> ${values.programme}</li>
-        <li><strong>Year:</strong> ${values.year}</li>
-        <li><strong>Why:</strong> ${values.why}</li>
-      </ul>`,
+    subject: `Workshop registration: ${values.name} — ${values.workshop}`,
+    text: `Workshop registration:\n\nName: ${values.name}\nEmail: ${values.email}\nPhone: ${values.phone}\nWorkshop: ${values.workshop}\nNotes: ${values.notes || ""}`,
+    html: `<p>New workshop registration:</p><ul><li><strong>Name:</strong> ${values.name}</li><li><strong>Email:</strong> ${values.email}</li><li><strong>Phone:</strong> ${values.phone}</li><li><strong>Workshop:</strong> ${values.workshop}</li><li><strong>Notes:</strong> ${values.notes || ""}</li></ul>`,
   };
 
   await transporter.sendMail(message);
@@ -95,13 +85,10 @@ async function sendApplicationEmail(values: {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, programme, year, why } = body ?? {};
+    const { name, email, phone, workshop, notes } = body ?? {};
 
-    if (!name || !email || !programme || !year || !why) {
-      return NextResponse.json(
-        { error: "All form fields are required." },
-        { status: 400 }
-      );
+    if (!name || !email || !phone || !workshop) {
+      return NextResponse.json({ error: "name, email, phone and workshop are required." }, { status: 400 });
     }
 
     const hasSheets = !!(
@@ -115,7 +102,7 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           error:
-            "Server is not configured to accept applications. Provide SMTP_USER/SMTP_PASS for Gmail SMTP or Google Sheets service account credentials.",
+            "Server is not configured to accept registrations. Provide SMTP_USER/SMTP_PASS for Gmail SMTP or Google Sheets service account credentials.",
         },
         { status: 500 }
       );
@@ -125,7 +112,7 @@ export async function POST(request: Request) {
 
     if (hasSheets) {
       try {
-        await appendApplicationToSheet({ name, email, programme, year, why });
+        await appendWorkshopToSheet({ name, email, phone, workshop, notes });
         results.sheet = "ok";
       } catch (err) {
         console.error("Append to sheet failed:", err);
@@ -135,7 +122,7 @@ export async function POST(request: Request) {
 
     if (hasSmtp) {
       try {
-        await sendApplicationEmail({ name, email, programme, year, why });
+        await sendWorkshopEmail({ name, email, phone, workshop, notes });
         results.email = "ok";
       } catch (err) {
         console.error("Send email failed:", err);
@@ -143,6 +130,7 @@ export async function POST(request: Request) {
       }
     }
 
+    // If both methods attempted and both failed, return 500
     const attempted = [results.sheet, results.email].filter(Boolean);
     const failures = attempted.filter((r) => String(r).startsWith("error"));
 
@@ -152,10 +140,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true, details: results });
   } catch (error) {
-    console.error("Join API error:", error);
-    return NextResponse.json(
-      { error: error instanceof Error ? error.message : "Unknown error" },
-      { status: 500 }
-    );
+    console.error("Workshop API error:", error);
+    return NextResponse.json({ error: error instanceof Error ? error.message : "Unknown error" }, { status: 500 });
   }
 }

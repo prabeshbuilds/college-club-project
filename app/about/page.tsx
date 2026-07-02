@@ -163,7 +163,9 @@ export default function About() {
               <p className="text-sm text-paper-dim leading-relaxed">
                 For farewell programs, the club handles AV, lighting,
                 presentations, and event tech so students leave with a
-                memorable send-off.
+                memorable send-off. In recent years we delivered a
+                seven-star level production — last year&rsquo;s farewell was
+                hosted at Hotel Royal Tulip.
               </p>
             </div>
           </div>
