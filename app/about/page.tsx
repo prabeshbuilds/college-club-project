@@ -78,7 +78,7 @@ export default function About() {
             <p className="font-mono text-xs text-gold mb-3">// mission</p>
             <p className="font-display text-xl text-paper leading-snug">
               Give every BCA and IT student at Sungava College a practical,
-              hands-on path into technology — beyond the syllabus.
+              hands-on path into technology  beyond the syllabus.
             </p>
           </div>
           <div className="rounded-md border border-line bg-surface p-8">
@@ -87,6 +87,49 @@ export default function About() {
               Workshops, hackathons, the annual Drishya tech fest, and the
               technical backbone of campus life at Sungava College.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-line bg-ink/70">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8 py-16 sm:py-20">
+          <p className="font-mono text-xs text-gold mb-3">// photos</p>
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <h2 className="font-display text-2xl sm:text-3xl font-semibold text-paper">
+                Moments from club life and campus events
+              </h2>
+              <p className="mt-3 max-w-2xl text-sm text-paper-dim leading-relaxed">
+                From workshops and hackathons to farewell productions, these snapshots reflect the energy behind our growing student community.
+              </p>
+            </div>
+          </div>
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
+            {[
+              {
+                src: "/club.jpeg",
+                alt: "Club members at a workshop session",
+              },
+              {
+                src: "/club1.jpeg",
+                alt: "Club leadership and alumni in a meetup",
+              },
+              {
+                src: "/club3.jpeg",
+                alt: "Sungava IT Club visual identity and event branding",
+              },
+            ].map((photo) => (
+              <div
+                key={photo.src}
+                className="group overflow-hidden rounded-md border border-line bg-surface"
+              >
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  className="h-72 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
