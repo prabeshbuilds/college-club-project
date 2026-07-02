@@ -139,20 +139,81 @@ export default function About() {
 
       <section className="border-b border-line bg-surface/40">
         <div className="mx-auto max-w-6xl px-5 sm:px-8 py-16 sm:py-20">
+          <p className="font-mono text-xs text-gold mb-3">// freshers & farewell</p>
+          <h2 className="font-display text-2xl sm:text-3xl font-semibold text-paper mb-10">
+            Club support for Freshers' Week and farewell events
+          </h2>
+          <div className="grid gap-6 sm:grid-cols-2">
+            <div className="rounded-md border border-line bg-ink p-7">
+              <p className="font-mono text-[11px] text-crimson mb-3">freshers</p>
+              <h3 className="font-display text-lg text-paper mb-3">
+                Welcoming new students with smooth event tech
+              </h3>
+              <p className="text-sm text-paper-dim leading-relaxed">
+                The club manages sound, streaming, registration, and live
+                tech support during Freshers' Week so new students can focus
+                on making friends and enjoying the welcome events.
+              </p>
+            </div>
+            <div className="rounded-md border border-line bg-ink p-7">
+              <p className="font-mono text-[11px] text-crimson mb-3">farewell</p>
+              <h3 className="font-display text-lg text-paper mb-3">
+                Closing celebrations with polished production
+              </h3>
+              <p className="text-sm text-paper-dim leading-relaxed">
+                For farewell programs, the club handles AV, lighting,
+                presentations, and event tech so students leave with a
+                memorable send-off.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-line bg-surface/40">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8 py-16 sm:py-20">
           <p className="font-mono text-xs text-gold mb-3">// alumni & leadership</p>
           <h2 className="font-display text-2xl sm:text-3xl font-semibold text-paper mb-10">
             Club alumni, former members, and presidents power our success
           </h2>
-          <div className="grid sm:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
             <div className="rounded-md border border-line bg-ink p-6">
-              <p className="font-mono text-[11px] text-crimson mb-3">alumnus</p>
-              <h3 className="font-display text-lg text-paper mb-3">
-                Built by students, backed by alumni
-              </h3>
+              <div className="flex items-start gap-4 mb-4">
+                <div className="h-16 w-16 overflow-hidden rounded-full border border-line bg-ink">
+                  <img
+                    src="/manjesh.jpeg"
+                    alt="Manjesh Rayamajhi"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div>
+                  <p className="font-mono text-[11px] text-crimson mb-2">alumnus</p>
+                  <h3 className="font-display text-lg text-paper">Manjesh Rayamajhi</h3>
+                </div>
+              </div>
               <p className="text-sm text-paper-dim leading-relaxed">
-                Sungava IT Club alumni like Manjesh Rayamajhi and Prateek Gire
-                remain involved through mentorship, workshops, and support
-                for new club projects.
+                Manjesh is an active alumnus who mentors students and helps
+                organise workshops and club projects.
+              </p>
+            </div>
+
+            <div className="rounded-md border border-line bg-ink p-6">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="h-16 w-16 overflow-hidden rounded-full border border-line bg-ink">
+                  <img
+                    src="/pratik.jpeg"
+                    alt="Prateek Gire"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div>
+                  <p className="font-mono text-[11px] text-crimson mb-2">alumnus</p>
+                  <h3 className="font-display text-lg text-paper">Prateek Gire</h3>
+                </div>
+              </div>
+              <p className="text-sm text-paper-dim leading-relaxed">
+                Prateek contributes by offering technical guidance and
+                sharing industry experience with club members.
               </p>
             </div>
 
@@ -168,10 +229,19 @@ export default function About() {
             </div>
 
             <div className="rounded-md border border-line bg-ink p-6">
-              <p className="font-mono text-[11px] text-crimson mb-3">president</p>
-              <h3 className="font-display text-lg text-paper mb-3">
-                Led by Prabesh Khatiwada
-              </h3>
+              <div className="flex items-start gap-4 mb-4">
+                <div className="h-16 w-16 overflow-hidden rounded-full border border-line bg-ink">
+                  <img
+                    src="/pra.jpeg"
+                    alt="Prabesh Khatiwada"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div>
+                  <p className="font-mono text-[11px] text-crimson mb-2">president</p>
+                  <h3 className="font-display text-lg text-paper">Prabesh Khatiwada</h3>
+                </div>
+              </div>
               <p className="text-sm text-paper-dim leading-relaxed">
                 Under president Prabesh Khatiwada, the club organizes
                 national hackathons and codefests with CodeForChange.
