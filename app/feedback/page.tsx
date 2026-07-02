@@ -43,6 +43,7 @@ const testimonials = [
     quote:
       "You don't need to be an IT student to attend. I came for the Git session and stayed for the community.",
   },
+  
   {
     name: "Sanisha Sapkota",
     role: "BCA, 7st semester",

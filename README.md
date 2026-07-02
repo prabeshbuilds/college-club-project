@@ -37,3 +37,4 @@ npm run start
 - Fonts (Space Grotesk, Inter, JetBrains Mono) load from Google Fonts via
   `app/globals.css`.
 # club-website
+# college-club-project
