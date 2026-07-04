@@ -18,6 +18,8 @@ ENV PORT=3000
 
 RUN addgroup -S nextjs && adduser -S nextjs -G nextjs
 
+
+
 COPY package*.json ./
 RUN npm ci --omit=dev && npm cache clean --force
 

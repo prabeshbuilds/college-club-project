@@ -16,6 +16,9 @@ The site is built with Next.js 16, React 19, and Tailwind CSS 4.
 - Server-side API route for join submissions (`/api/join`)
 - Email + Google Sheets integration for application handling
 
+
+
+
 ## Local setup
 
 ```bash
