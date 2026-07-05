@@ -9,6 +9,8 @@ const workshops = [
   "Git & GitHub",
 ];
 
+
+
 export default function WorkshopForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "sent">("idle");
   const [error, setError] = useState<string | null>(null);

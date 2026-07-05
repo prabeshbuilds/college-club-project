@@ -59,6 +59,9 @@ export default function JoinForm() {
     }
   }
 
+
+  
+
   if (status === "sent") {
     return (
       <div className="rounded-md border border-line bg-surface p-8">

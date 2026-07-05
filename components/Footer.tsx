@@ -32,6 +32,8 @@ export default function Footer() {
             </ul>
           </div>
 
+
+
           <div>
             <p className="font-mono text-xs text-gold mb-3">// college</p>
             <ul className="space-y-2 text-sm text-muted">
@@ -50,6 +52,8 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+
+          
 
           <div>
             <p className="font-mono text-xs text-gold mb-3">// reach us</p>
