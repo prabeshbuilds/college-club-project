@@ -13,7 +13,7 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/prabeshbuilds/QuickCart_Project.git'
+                git branch: 'main', url: 'https://github.com/prabeshbuilds/college-club-project.git'
             }
         }
 
