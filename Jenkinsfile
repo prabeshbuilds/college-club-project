@@ -28,8 +28,8 @@ pipeline {
                 withSonarQubeEnv("${SONARQUBE_ENV}") {
                     sh '''
                         npx sonar-scanner \
-                        -Dsonar.projectKey=quickcart \
-                        -Dsonar.projectName=QuickCart \
+                        -Dsonar.projectKey=sungava \
+                        -Dsonar.projectName=Sungava \
                         -Dsonar.sources=. \
                         -Dsonar.host.url=$SONAR_HOST_URL \
                         -Dsonar.token=$SONAR_AUTH_TOKEN
