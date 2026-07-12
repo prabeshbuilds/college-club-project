@@ -1,3 +1,4 @@
+# This docker-compose.yml file defines a multi-container application with three services: a web application, Prometheus for monitoring, and Grafana for visualization. The web service is built from a Dockerfile in the current directory, while Prometheus and Grafana use official images. The services are connected through a custom network named "monitoring," and persistent storage is provided for Prometheus and Grafana data.
 version: "3.9"
 
 services:

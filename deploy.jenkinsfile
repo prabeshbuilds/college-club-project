@@ -5,7 +5,7 @@ pipeline {
         IMAGE_NAME = "prabeshdevops/sungava-it-club"
         IMAGE_TAG  = "latest"
 
-        DEPLOY_SERVER = "54.90.215.27"
+        DEPLOY_SERVER = "54.90.21"
         DEPLOY_USER   = "ubuntu"
         DEPLOY_PORT   = "22"
 
@@ -15,6 +15,8 @@ pipeline {
 
         ENV_FILE = "/home/ubuntu/.sungava-it-club.env"
     }
+
+
 
     stages {
 
@@ -72,7 +74,7 @@ pipeline {
 
     post {
         success {
-            echo '✅ Deployment Successful!'
+            echo '✅ Application are Deployment!'
         }
 
         failure {
