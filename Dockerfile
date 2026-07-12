@@ -1,4 +1,5 @@
 # syntax=docker/dockerfile:1.7
+# This Dockerfile is based on the official Node.js image and is optimized for building and running a Next.js application in production.
 
 FROM node:22-alpine AS base
 WORKDIR /app
