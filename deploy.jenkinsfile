@@ -18,6 +18,9 @@ pipeline {
 
 
 
+
+
+
     stages {
 
         stage('📥 Pull Docker Image') {
