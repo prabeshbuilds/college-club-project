@@ -82,7 +82,7 @@ pipeline {
 
     post {
         success {
-            echo '✅ Build, Scan & Push Successful!'
+            echo '✅ Build, Scan & Push Successfulllll!'
         }
         failure {
             echo '❌ Pipeline Failed!'
