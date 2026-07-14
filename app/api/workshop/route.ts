@@ -26,10 +26,14 @@ async function appendWorkshopToSheet(values: {
 }) {
   const auth = getSheetsAuth();
   const sheets = google.sheets({ version: "v4", auth });
+  const sheetRange =
+    process.env.GOOGLE_SHEETS_RANGE_WORKSHOP ||
+    process.env.GOOGLE_SHEETS_RANGE ||
+    "Workshop!A:F";
 
   await sheets.spreadsheets.values.append({
     spreadsheetId: process.env.GOOGLE_SHEETS_SPREADSHEET_ID || "",
-    range: process.env.GOOGLE_SHEETS_RANGE || "Workshop!A:F",
+    range: sheetRange,
     valueInputOption: "RAW",
     requestBody: {
       values: [

@@ -26,10 +26,14 @@ async function appendApplicationToSheet(values: {
 }) {
   const auth = getSheetsAuth();
   const sheets = google.sheets({ version: "v4", auth });
+  const sheetRange =
+    process.env.GOOGLE_SHEETS_RANGE_JOIN ||
+    process.env.GOOGLE_SHEETS_RANGE ||
+    "Sheet1!A:F";
 
   await sheets.spreadsheets.values.append({
     spreadsheetId: process.env.GOOGLE_SHEETS_SPREADSHEET_ID || "",
-    range: process.env.GOOGLE_SHEETS_RANGE || "Sheet1!A:F",
+    range: sheetRange,
     valueInputOption: "RAW",
     requestBody: {
       values: [
