@@ -44,8 +44,8 @@ npm run start
 
 ## Important environment variables
 
-The join application backend uses email and Google Sheets services.
-Create a `.env` file with the following values:
+The join and workshop backends use email and Google Sheets services.
+Copy [`.env.example`](.env.example) to `.env` and fill in the values below:
 
 ```env
 SMTP_HOST=smtp.gmail.com
@@ -57,10 +57,18 @@ EMAIL_FROM=your-smtp-user
 GOOGLE_SHEETS_CLIENT_EMAIL=your-service-account-email
 GOOGLE_SHEETS_PRIVATE_KEY="your-private-key"
 GOOGLE_SHEETS_SPREADSHEET_ID=your-spreadsheet-id
-GOOGLE_SHEETS_RANGE=Sheet1!A:F
+GOOGLE_SHEETS_RANGE_JOIN=Sheet1!A:F
+GOOGLE_SHEETS_RANGE_WORKSHOP=Workshop!A:F
 ```
 
 > Note: `GOOGLE_SHEETS_PRIVATE_KEY` should preserve newlines as `\n`.
+
+To connect the site to a Google Sheet:
+
+1. Create a Google Cloud service account and enable the Google Sheets API.
+2. Share your spreadsheet with the service account email address.
+3. Use the spreadsheet ID from the URL and set the correct tab/range such as `Sheet1!A:F`.
+4. Restart the app after updating `.env`.
 
 ## Routes
 
