@@ -4,15 +4,12 @@ pipeline {
     environment {
         IMAGE_NAME = "prabeshdevops/sungava-it-club"
         IMAGE_TAG  = "latest"
-
         DEPLOY_SERVER = "Public ip"
         DEPLOY_USER   = "ubuntu"
         DEPLOY_PORT   = "22"
-
         APP_NAME = "sungava-it-club"
         APP_PORT = "3000"
         
-
         ENV_FILE = "/home/ubuntu/.sungava-it-club.env"
     }
 
