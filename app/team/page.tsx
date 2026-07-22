@@ -48,6 +48,8 @@ const members = [
     image: "/suprem.png",
     initials: "SN",
   },
+
+  
   {
     name: "Bishal Pandey",
     role: "PR Lead",
